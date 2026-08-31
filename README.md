@@ -4,6 +4,8 @@
 
 ## 安装
 
+### Codex
+
 在 Codex 中直接说：
 
 ```text
@@ -21,6 +23,33 @@
 ```text
 使用 $xhs-business-validator 验证网上 AI 教辅
 ```
+
+### WorkBuddy
+
+仓库采用 WorkBuddy 可识别的标准 `SKILL.md + references + scripts` 结构。克隆到用户级技能目录：
+
+macOS / Linux：
+
+```bash
+git clone https://github.com/Nook-TT/xhs-business-validator.git \
+  "$HOME/.workbuddy/skills/xhs-business-validator"
+```
+
+Windows PowerShell：
+
+```powershell
+git clone https://github.com/Nook-TT/xhs-business-validator.git `
+  "$env:USERPROFILE\.workbuddy\skills\xhs-business-validator"
+```
+
+重启或刷新 WorkBuddy 后即可使用。WorkBuddy 会忽略 Codex 专用的 `agents/openai.yaml`，不影响核心功能。
+
+## 运行要求
+
+- Python 3；仅使用标准库，无需额外安装 Python 包。
+- 允许访问 `api.tikhub.io`。
+- 允许在当前工作区读取 `.env`，并创建 `data/` 和 `reports/`。
+- 运行脚本时必须从 Skill 安装目录解析 `scripts/`，数据仍写入用户当前工作区。
 
 ## 凭证与费用
 
