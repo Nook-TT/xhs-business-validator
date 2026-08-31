@@ -4,7 +4,13 @@
 
 ## 安装
 
-将仓库克隆或复制到 Codex skills 目录：
+在 Codex 中直接说：
+
+```text
+使用 $skill-installer 从 https://github.com/Nook-TT/xhs-business-validator 安装这个 Skill
+```
+
+也可以手动将仓库克隆或复制到 Codex skills 目录：
 
 ```text
 ~/.codex/skills/xhs-business-validator/
