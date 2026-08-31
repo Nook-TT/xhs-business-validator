@@ -1,0 +1,125 @@
+{
+  "idea": "示例业务",
+  "summary": "存在具体痛点和初步购买意向，但样本仍需扩大。",
+  "confidence": "medium",
+  "sample": {
+    "queries": [
+      "示例需求",
+      "示例价格"
+    ],
+    "notes_collected": 20,
+    "notes_relevant": 12,
+    "comments_reviewed": 30,
+    "requests_made": 5,
+    "estimated_cost_usd": 0.05,
+    "limitations": [
+      "仅用于离线渲染测试"
+    ]
+  },
+  "dimensions": {
+    "demand_strength": {
+      "score": 70,
+      "rationale": "多次出现具体需求。",
+      "evidence": [
+        {
+          "note_id": "sample-1",
+          "text": "用户描述了高频问题。"
+        }
+      ]
+    },
+    "payment_intent": {
+      "score": 60,
+      "rationale": "出现询价。",
+      "evidence": [
+        {
+          "note_id": "sample-2",
+          "text": "用户询问价格。"
+        }
+      ]
+    },
+    "pain_clarity": {
+      "score": 75,
+      "rationale": "痛点明确。",
+      "evidence": [
+        {
+          "note_id": "sample-1",
+          "text": "问题具体且重复发生。"
+        }
+      ]
+    },
+    "differentiation_space": {
+      "score": 65,
+      "rationale": "替代品仍有缺口。",
+      "evidence": [
+        {
+          "note_id": "sample-3",
+          "text": "现有方案使用不便。"
+        }
+      ]
+    },
+    "product_feasibility": {
+      "score": 80,
+      "rationale": "可以低成本试做。",
+      "evidence": [
+        {
+          "note_id": "sample-4",
+          "text": "用户愿意参加试用。"
+        }
+      ]
+    },
+    "acquisition_and_compliance": {
+      "score": 60,
+      "rationale": "渠道清楚但有信任成本。",
+      "evidence": [
+        {
+          "note_id": "sample-5",
+          "text": "用户关注保障。"
+        }
+      ]
+    }
+  },
+  "supporting_signals": [
+    {
+      "title": "明确需求",
+      "detail": "用户主动寻找解决方案。",
+      "note_id": "sample-1"
+    }
+  ],
+  "opposing_signals": [
+    {
+      "title": "信任风险",
+      "detail": "用户要求先试用。",
+      "note_id": "sample-5"
+    }
+  ],
+  "positioning": {
+    "recommendation": "先做窄场景验证。",
+    "target_user": "高频问题用户",
+    "wedge": "解决一个重复痛点"
+  },
+  "experiment": {
+    "duration": "2 周",
+    "steps": [
+      "招募 10 人试用"
+    ],
+    "pass_thresholds": [
+      "至少 3 人付款"
+    ],
+    "stop_thresholds": [
+      "无人复用"
+    ]
+  },
+  "weighted_raw_score": 68.5,
+  "final_score": 65,
+  "verdict": "有潜力，建议进行小范围付费验证",
+  "score_weights": {
+    "demand_strength": 0.25,
+    "payment_intent": 0.2,
+    "pain_clarity": 0.15,
+    "differentiation_space": 0.15,
+    "product_feasibility": 0.15,
+    "acquisition_and_compliance": 0.1
+  },
+  "confidence_multiplier": 0.95,
+  "scored_at": "2026-08-31T04:16:12.774465+00:00"
+}
