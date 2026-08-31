@@ -9,6 +9,8 @@ metadata:
 
 Turn a business idea into a bounded Xiaohongshu research run, an auditable score, and a self-contained HTML report. The skill is portable: code and rules live here; credentials and outputs live in the user's current workspace.
 
+At runtime, resolve `<skill-root>` to the directory containing this `SKILL.md`. Resolve every bundled script, reference, and asset relative to `<skill-root>`, never relative to the user's workspace. Use an available Python 3 interpreter (`python3`, `python`, or the host application's bundled Python runtime).
+
 ## Before collection
 
 1. Work from the user's current workspace. Never write runtime credentials or outputs into this skill directory.
@@ -34,7 +36,7 @@ Avoid broad terms that attract unrelated audiences. For local ideas, keep nation
 Read [references/tikhub-api.md](references/tikhub-api.md) when calling or troubleshooting TikHub. Run:
 
 ```text
-python scripts/collect.py --idea "<idea>" --mode standard --keywords "<q1>" "<q2>" "<q3>" "<q4>"
+<python3> <skill-root>/scripts/collect.py --idea "<idea>" --mode standard --workspace "<workspace>" --keywords "<q1>" "<q2>" "<q3>" "<q4>"
 ```
 
 The script reads the workspace `.env`, applies the request cap, respects a one-second delay, reuses the 24-hour workspace cache, normalizes results, and redacts secrets from saved errors. It writes a run folder under `data/xhs-validator/` and prints its path.
@@ -50,7 +52,7 @@ Separate attention, pain, intent, adoption, and competition. Do not treat high e
 Run the deterministic score calculator:
 
 ```text
-python scripts/score.py <run>/analysis.json
+<python3> <skill-root>/scripts/score.py <run>/analysis.json
 ```
 
 The calculator validates evidence counts, applies fixed weights, and writes the final score back to the file. Do not manually override it. If evidence is sparse, lower `confidence` rather than inventing certainty.
@@ -60,7 +62,7 @@ The calculator validates evidence counts, applies fixed weights, and writes the 
 Generate the self-contained report in the workspace:
 
 ```text
-python scripts/render_report.py <run>/analysis.json --output reports/<safe-name>.html
+<python3> <skill-root>/scripts/render_report.py <run>/analysis.json --output <workspace>/reports/<safe-name>.html
 ```
 
 The final response should lead with the score and decision, then give the strongest supporting and opposing evidence, a narrow positioning recommendation, and a low-cost validation experiment with pass/fail thresholds. Link the report. Mention the request count and estimated API spend.
@@ -71,4 +73,5 @@ The final response should lead with the score and decision, then give the strong
 - Sanitize error bodies before saving or displaying them.
 - The optional external LLM path is intentionally omitted: analyze with the active agent unless the user explicitly requests another model or service.
 - Keep runtime dependencies to the Python standard library so the skill remains portable.
+- Codex may use `agents/openai.yaml`; WorkBuddy may ignore it. No core behavior depends on that file.
 
