@@ -1,0 +1,8 @@
+interface:
+  display_name: "小红书业务创意验证器"
+  short_description: "用公开笔记与评论验证需求、购买意向和竞争信号"
+  brand_color: "#E94B64"
+  default_prompt: "使用 $xhs-business-validator 验证这个商业想法，并生成有证据的市场报告。"
+policy:
+  allow_implicit_invocation: true
+
